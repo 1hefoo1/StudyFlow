@@ -57,6 +57,9 @@ export class TasksPage {
     }
 
     async init() {
+        // Update global reference so onclick handlers use this instance
+        window.tasksPage = this;
+        
         await this.loadTasks();
     }
 

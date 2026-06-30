@@ -212,6 +212,9 @@ export class SettingsPage {
     }
 
     async init() {
+        // Update global reference so onclick handlers use this instance
+        window.settingsPage = this;
+        
         await this.loadSettings();
         this.updateStorageUsed();
     }

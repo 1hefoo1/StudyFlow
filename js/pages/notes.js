@@ -85,6 +85,9 @@ export class NotesPage {
     }
 
     async init() {
+        // Update global reference so onclick handlers use this instance
+        window.notesPage = this;
+        
         await this.loadNotebooks();
         await this.loadNotes();
         this.setupEventListeners();

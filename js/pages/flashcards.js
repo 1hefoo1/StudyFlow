@@ -52,6 +52,9 @@ export class FlashcardsPage {
     }
 
     async init() {
+        // Update global reference so onclick handlers use this instance
+        window.flashcardsPage = this;
+        
         await this.loadDecks();
         if (this.decks.length > 0) {
             await this.selectDeck(this.decks[0].id);

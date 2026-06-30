@@ -79,6 +79,9 @@ export class DashboardPage {
     }
 
     async init() {
+        // Update global reference so onclick handlers use this instance
+        window.dashboardPage = this;
+        
         await this.renderQuickStats();
         await this.renderTodayTasks();
         await this.renderRecentNotes();

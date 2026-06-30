@@ -108,6 +108,9 @@ export class FocusPage {
     }
 
     async init() {
+        // Update global reference so onclick handlers use this instance
+        window.focusPage = this;
+        
         await this.loadSettings();
         await this.updateStats();
     }

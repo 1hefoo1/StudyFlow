@@ -61,6 +61,9 @@ export class CalendarPage {
     }
 
     async init() {
+        // Update global reference so onclick handlers use this instance
+        window.calendarPage = this;
+        
         await this.loadEvents();
         await this.render();
     }
