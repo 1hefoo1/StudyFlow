@@ -25,6 +25,9 @@ class App {
             // Register routes
             this.registerRoutes();
             
+            // Initialize router (after routes are registered)
+            router.init();
+            
             // Register command palette commands
             this.registerCommands();
             

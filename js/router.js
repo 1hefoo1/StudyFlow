@@ -7,6 +7,7 @@ export class Router {
         this.afterHooks = [];
         this.params = {};
         this.query = {};
+        this.initialized = false;
         
         // Handle browser back/forward buttons and hash changes
         window.addEventListener('popstate', (event) => {
@@ -16,9 +17,15 @@ export class Router {
         window.addEventListener('hashchange', () => {
             this.handleRouteChange(window.location.hash, false);
         });
-        
-        // Handle initial load
-        this.handleRouteChange(window.location.hash || '#dashboard', false);
+    }
+    
+    // Initialize router (call after routes are registered)
+    init() {
+        if (!this.initialized) {
+            this.initialized = true;
+            // Handle initial load
+            this.handleRouteChange(window.location.hash || '#dashboard', false);
+        }
     }
 
     // Register a route
