@@ -3,7 +3,7 @@ import { storage } from './core/storage.js';
 
 export class Database {
     constructor() {
-        this.initializeData();
+        // Note: initializeData is called separately in app.js
     }
 
     // Initialize default data
