@@ -224,6 +224,18 @@ class App {
             }
         });
         
+        // Handle sidebar navigation
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = item.dataset.page;
+                if (page) {
+                    router.navigate(page);
+                }
+            });
+        });
+        
         // Handle mobile menu toggle
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const sidebar = document.querySelector('.sidebar');
