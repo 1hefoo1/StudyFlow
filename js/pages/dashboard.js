@@ -13,7 +13,7 @@ export class DashboardPage {
         this.container.className = 'dashboard-page';
         this.container.innerHTML = `
             <div class="welcome-section">
-                <h1 class="welcome-title">Welcome back! 👋</h1>
+                <h1 class="welcome-title">Welcome back!</h1>
                 <p class="welcome-subtitle">Here's what's happening with your studies today.</p>
             </div>
             
@@ -176,7 +176,11 @@ export class DashboardPage {
         if (pendingTasks.length === 0) {
             container.innerHTML = `
                 <div class="empty-state" style="min-height: 200px; padding: var(--spacing-lg);">
-                    <div class="empty-state-icon">✅</div>
+                    <div class="empty-state-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                    </div>
                     <div class="empty-state-title">All caught up!</div>
                     <div class="empty-state-description">No pending tasks for today</div>
                 </div>
@@ -218,7 +222,14 @@ export class DashboardPage {
         if (recentNotes.length === 0) {
             container.innerHTML = `
                 <div class="empty-state" style="min-height: 200px; padding: var(--spacing-lg);">
-                    <div class="empty-state-icon">📝</div>
+                    <div class="empty-state-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
                     <div class="empty-state-title">No notes yet</div>
                     <div class="empty-state-description">Create your first note to get started</div>
                 </div>
@@ -239,7 +250,7 @@ export class DashboardPage {
                         <div class="recent-note-content">
                             <div class="recent-note-title">${note.title || 'Untitled'}</div>
                             <div class="recent-note-meta">
-                                ${note.pinned ? '<span class="recent-note-pinned">📌 Pinned</span>' : ''}
+                                ${note.pinned ? '<span class="recent-note-pinned">Pinned</span>' : ''}
                                 <span>${DateUtils.format(note.updatedAt, 'relative')}</span>
                             </div>
                         </div>
@@ -300,7 +311,14 @@ export class DashboardPage {
         if (upcomingEvents.length === 0) {
             container.innerHTML = `
                 <div class="empty-state" style="min-height: 200px; padding: var(--spacing-lg);">
-                    <div class="empty-state-icon">📅</div>
+                    <div class="empty-state-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
                     <div class="empty-state-title">No upcoming events</div>
                     <div class="empty-state-description">Your schedule is clear</div>
                 </div>
