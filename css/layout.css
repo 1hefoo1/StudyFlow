@@ -1,0 +1,298 @@
+/* ==========================================================
+   StudyFlow Layout
+   Version 0.1.0
+========================================================== */
+
+/* ------------------------------
+   Main App
+------------------------------ */
+
+.main{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    min-width:0;
+    overflow:hidden;
+}
+
+/* ------------------------------
+   Top Navigation
+------------------------------ */
+
+.topbar{
+
+    height:80px;
+
+    padding:0 36px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--bg);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:50;
+
+    backdrop-filter:blur(16px);
+
+}
+
+/* ------------------------------
+   Page Container
+------------------------------ */
+
+#content{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:36px;
+
+}
+
+/* nice fade */
+
+.page{
+
+    animation:pageFade .28s ease;
+
+}
+
+/* active page */
+
+.active-page{
+
+    display:block;
+
+}
+
+/* hidden pages */
+
+.page:not(.active-page){
+
+    display:none;
+
+}
+
+/* ------------------------------
+   Max Width
+------------------------------ */
+
+.page{
+
+    max-width:1600px;
+
+    margin:auto;
+
+}
+
+/* ------------------------------
+   Welcome Section
+------------------------------ */
+
+.welcome-card{
+
+    margin-bottom:28px;
+
+}
+
+/* ------------------------------
+   Grid Helpers
+------------------------------ */
+
+.grid-2{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(2,1fr);
+
+    gap:24px;
+
+}
+
+.grid-3{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(3,1fr);
+
+    gap:24px;
+
+}
+
+.grid-4{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap:24px;
+
+}
+
+/* ------------------------------
+   Sections
+------------------------------ */
+
+.section{
+
+    margin-top:36px;
+
+}
+
+.section-title{
+
+    font-size:1.2rem;
+
+    margin-bottom:18px;
+
+}
+
+.section-subtitle{
+
+    color:var(--text-light);
+
+    margin-bottom:22px;
+
+}
+
+/* ------------------------------
+   Cards
+------------------------------ */
+
+.card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    transition:all var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+/* ------------------------------
+   Empty State
+------------------------------ */
+
+.empty-state{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    padding:70px 30px;
+
+    border-radius:22px;
+
+    border:2px dashed var(--border);
+
+    color:var(--text-light);
+
+}
+
+/* ------------------------------
+   Loading Skeleton
+------------------------------ */
+
+.skeleton{
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        var(--card),
+
+        var(--card-hover),
+
+        var(--card)
+
+    );
+
+    background-size:200% 100%;
+
+    animation:skeleton 1.4s infinite linear;
+
+}
+
+/* ------------------------------
+   Page Animation
+------------------------------ */
+
+@keyframes pageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+            translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+@keyframes skeleton{
+
+    from{
+
+        background-position:
+
+        200% 0;
+
+    }
+
+    to{
+
+        background-position:
+
+        -200% 0;
+
+    }
+
+}
