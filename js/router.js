@@ -54,8 +54,11 @@ export class Router {
 
     // Handle route change
     async handleRouteChange(hash, pushState = false) {
+        console.log('Router: Handling route change to', hash);
         const path = hash.replace('#', '') || 'dashboard';
         const [routePath, queryString] = path.split('?');
+        
+        console.log('Router: Route path:', routePath);
         
         // Parse query parameters
         this.query = this.parseQuery(queryString || '');
@@ -64,9 +67,12 @@ export class Router {
         const PageClass = this.routes.get(routePath);
         
         if (!PageClass) {
-            console.error(`Route not found: ${routePath}`);
+            console.error(`Router: Route not found: ${routePath}`);
+            console.error('Router: Available routes:', Array.from(this.routes.keys()));
             return;
         }
+        
+        console.log('Router: Found page class:', PageClass.name);
         
         // Hide current page
         if (this.currentRoute) {

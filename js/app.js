@@ -19,23 +19,37 @@ class App {
 
     async init() {
         try {
+            console.log('App: Starting initialization...');
+            
             // Initialize database
+            console.log('App: Initializing database...');
             await db.initializeData();
+            console.log('App: Database initialized');
             
             // Register routes
+            console.log('App: Registering routes...');
             this.registerRoutes();
+            console.log('App: Routes registered');
             
             // Initialize router (after routes are registered)
+            console.log('App: Initializing router...');
             router.init();
+            console.log('App: Router initialized');
             
             // Register command palette commands
+            console.log('App: Registering commands...');
             this.registerCommands();
+            console.log('App: Commands registered');
             
             // Setup global event listeners
+            console.log('App: Setting up event listeners...');
             this.setupEventListeners();
+            console.log('App: Event listeners set up');
             
             // Apply saved settings
+            console.log('App: Applying settings...');
             await this.applySettings();
+            console.log('App: Settings applied');
             
             // Show welcome toast
             setTimeout(() => {
@@ -45,7 +59,8 @@ class App {
             console.log('StudyFlow initialized successfully');
         } catch (error) {
             console.error('Failed to initialize StudyFlow:', error);
-            toast.error('Initialization Error', 'Failed to load the application');
+            console.error('Error stack:', error.stack);
+            toast.error('Initialization Error', 'Failed to load the application: ' + error.message);
         }
     }
 
