@@ -86,17 +86,30 @@ export class Router {
         
         // Create and render new page
         const pageContainer = document.getElementById('page-container');
+        console.log('Router: Page container:', pageContainer);
+        
+        if (!pageContainer) {
+            console.error('Router: Page container not found!');
+            return;
+        }
+        
         const page = new PageClass();
         this.currentRoute = page;
         
         // Render page
         const pageElement = page.render();
+        console.log('Router: Page element rendered:', pageElement);
+        
         pageElement.classList.add('page', 'page-enter');
         pageContainer.appendChild(pageElement);
         
+        console.log('Router: Page element added to DOM');
+        
         // Initialize page
         if (page.init) {
+            console.log('Router: Initializing page...');
             await page.init(this.params, this.query);
+            console.log('Router: Page initialized');
         }
         
         // Update active nav item
@@ -111,6 +124,8 @@ export class Router {
         if (page.getTitle) {
             document.title = `${page.getTitle()} - StudyFlow`;
         }
+        
+        console.log('Router: Route change complete');
     }
 
     // Parse query string
