@@ -1,4 +1,8 @@
 // Flashcards Page
+import { DateUtils } from '../utils/date.js';
+import { db } from '../database.js';
+import { Helpers } from '../utils/helpers.js';
+
 export class FlashcardsPage {
     constructor() {
         this.container = null;
