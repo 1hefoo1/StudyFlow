@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudyFlow - A modern offline-first study planner">
+    <meta name="theme-color" content="#F5F2EB">
+    <title>StudyFlow</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="app">
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="currentColor"/>
+                        <path d="M8 12h16M8 16h12M8 20h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">StudyFlow</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="7" height="7" rx="1.5"/>
+                        <rect x="11" y="2" width="7" height="7" rx="1.5"/>
+                        <rect x="2" y="11" width="7" height="7" rx="1.5"/>
+                        <rect x="11" y="11" width="7" height="7" rx="1.5"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#notes" class="nav-item" data-page="notes">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h12v12H4z"/>
+                        <path d="M7 7h6M7 10h6M7 13h4"/>
+                    </svg>
+                    <span>Notes</span>
+                </a>
+                <a href="#tasks" class="nav-item" data-page="tasks">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6l3 3 7-7"/>
+                        <rect x="2" y="2" width="16" height="16" rx="2"/>
+                    </svg>
+                    <span>Tasks</span>
+                </a>
+                <a href="#calendar" class="nav-item" data-page="calendar">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="14" height="13" rx="2"/>
+                        <path d="M3 8h14M7 2v4M13 2v4"/>
+                    </svg>
+                    <span>Calendar</span>
+                </a>
+                <a href="#focus" class="nav-item" data-page="focus">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="10" cy="10" r="7"/>
+                        <path d="M10 6v4l3 3"/>
+                    </svg>
+                    <span>Focus</span>
+                </a>
+                <a href="#flashcards" class="nav-item" data-page="flashcards">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="5" width="16" height="10" rx="2"/>
+                        <path d="M2 9h16"/>
+                    </svg>
+                    <span>Flashcards</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#settings" class="nav-item" data-page="settings">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="10" cy="10" r="3"/>
+                        <path d="M10 1v3M10 16v3M1 10h3M16 10h3M3.5 3.5l2 2M14.5 14.5l2 2M3.5 16.5l2-2M14.5 5.5l2-2"/>
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+        <main id="main-content" class="main-content">
+            <div id="page-container" class="page-container"></div>
+        </main>
+    </div>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
