@@ -84,15 +84,22 @@ export class FlashcardsPage {
             return;
         }
 
-        container.innerHTML = this.decks.map(deck => {
-            const cards = await db.getFlashcardsByDeck(deck.id);
+        // Get card counts for all decks
+        const decksWithCounts = await Promise.all(
+            this.decks.map(async (deck) => {
+                const cards = await db.getFlashcardsByDeck(deck.id);
+                return { ...deck, cardCount: cards.length };
+            })
+        );
+
+        container.innerHTML = decksWithCounts.map(deck => {
             return `
                 <div class="deck-item ${this.currentDeck === deck.id ? 'active' : ''}" 
                      onclick="flashcardsPage.selectDeck('${deck.id}')"
                      style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-md); border-radius: var(--radius-md); cursor: pointer; transition: all var(--transition-fast); margin-bottom: var(--spacing-sm); ${this.currentDeck === deck.id ? 'background: var(--color-bg-hover);' : ''}">
                     <div style="flex: 1; min-width: 0;">
                         <div style="font-weight: var(--font-weight-medium); color: var(--color-text-primary); margin-bottom: var(--spacing-xs);">${deck.name}</div>
-                        <div style="font-size: var(--font-size-sm); color: var(--color-text-tertiary);">${cards.length} cards</div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-tertiary);">${deck.cardCount} cards</div>
                     </div>
                 </div>
             `;
