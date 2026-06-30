@@ -22,6 +22,15 @@
 </head>
 <body>
     <div id="app">
+        <button id="theme-toggle" class="theme-toggle" onclick="app.toggleTheme()" title="Toggle theme">
+            <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="10" cy="10" r="4"/>
+                <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.93 4.93l1.41 1.41M13.66 13.66l1.41 1.41M4.93 15.07l1.41-1.41M13.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                <path d="M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+            </svg>
+        </button>
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">

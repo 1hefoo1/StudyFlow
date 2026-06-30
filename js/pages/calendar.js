@@ -136,7 +136,7 @@ export class CalendarPage {
             html += `<div class="calendar-day other-month"><span>${day}</span></div>`;
         }
 
-        // Current month days
+            // Current month days
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(year, month, day);
             const dateStr = date.toISOString().split('T')[0];
@@ -147,7 +147,7 @@ export class CalendarPage {
             });
 
             html += `
-                <div class="calendar-day ${isToday ? 'today' : ''}" onclick="calendarView.selectDate('${dateStr}')">
+                <div class="calendar-day ${isToday ? 'today' : ''}">
                     <span class="calendar-day-number">${day}</span>
                     <div class="calendar-day-events">
                         ${dayEvents.slice(0, 3).map(event => `

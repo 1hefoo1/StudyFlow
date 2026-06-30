@@ -125,7 +125,8 @@ export class Router {
         const navItems = document.querySelectorAll('.nav-item');
         navItems.forEach(item => {
             item.classList.remove('active');
-            if (item.dataset.page === routePath) {
+            const page = item.getAttribute('data-page');
+            if (page === routePath) {
                 item.classList.add('active');
             }
         });

@@ -282,6 +282,16 @@ class App {
             document.querySelector('.sidebar')?.classList.add('collapsed');
         }
     }
+
+    toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        db.updateSettings({ theme: newTheme });
+        
+        toast.success('Theme changed', `Switched to ${newTheme} mode`);
+    }
 }
 
 // Initialize app when DOM is ready
